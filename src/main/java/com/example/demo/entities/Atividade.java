@@ -21,12 +21,7 @@ public class Atividade {
     @JoinColumn(name="categoria_id")
     private Categoria categoria;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tb_atividade_bloco",
-            joinColumns = @JoinColumn(name = "id_atividade"),
-            inverseJoinColumns = @JoinColumn(name = "id_bloco")
-    )
+    @OneToMany(mappedBy = "atividade")
     private List<Bloco> blocos = new ArrayList<>();
 
     @ManyToMany
